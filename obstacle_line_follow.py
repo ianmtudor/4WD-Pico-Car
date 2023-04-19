@@ -16,7 +16,6 @@ def main():
     while time.time() < timeout:    
     #while True:
         distance = car.get_radar_distance_at(angle)
-        print('left:%d, middle:%d, right:%d' %(grayValue[0], grayValue[1], grayValue[2]))
         print(distance)
         
         if math.isclose(distance, 15) or (distance < 15):
@@ -35,6 +34,7 @@ def main():
 
         gs_data = car.get_greyscale_status()
         grayValue = car.get_grayscale_values()
+        print('left:%d, middle:%d, right:%d' %(grayValue[0], grayValue[1], grayValue[2]))
         line_detection(MOTOR_POWER,gs_data,grayValue)
 
 
